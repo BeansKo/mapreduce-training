@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!--
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License. See accompanying LICENSE file.
+-->
+
+<!-- Put site-specific property overrides in this file. -->
+
+<configuration>
+	<!--主要的-->
+	<property>
+        <name>io.native.lib.available</name>
+        <value>true</value>
+		<description>开启本地库支持</description>
+	</property>
+	<!--主要的-->
+	<property>
+        <name>hbase.rootdir</name>
+        <value>hdfs://ns1/hbase</value>
+		<description>默认文件服务的协议和NS逻辑名称，和hdfs-site里的对应，此配置替代了1.0里的fs.default.name</description>
+	</property>
+	<property>
+        <name>hadoop.tmp.dir</name>
+        <value>/data/tmp</value>
+		<description>本地tmp路径</description>
+	</property>
+	<!--主要的-->
+	<property>
+        <name>io.compression.codecs</name>
+        <value>org.apache.hadoop.io.compress.DefaultCodec,org.apache.hadoop.io.compress.GzipCodec,org.apache.hadoop.io.compress.BZip2Codec,org.apache.hadoop.io.compress.SnappyCodec</value>
+		<description>压缩和解压的方式设置,相应编码的操作类</description>
+	</property>
+	<property>
+        <name>io.file.buffer.size</name>
+        <value>131072</value>
+		<description>Sequencefile在读写流文件中可以使用的缓存大小</description>
+	</property>
+	<!--主要的-->
+	<property>
+        <name>ha.zookeeper.quorum</name>
+        <value>nn1.hadoop:2181,nn2.hadoop:2181,s1.hadoop:2181</value>
+		<description>HA使用的zookeeper地址</description>
+	</property>
+	<property>
+        <name>ipc.client.connection.maxidletime</name>
+        <value>60000</value>
+		<description>断开与服务器连接的时间最大为60秒</description>
+	</property>
+	<property>
+        <name>mapreduce.output.fileoutputformat.compress.type</name>
+        <value>BLOCK</value>
+		<description>顺序文件输出可以使用的压缩类型：NONE、RECODE或者BLOCK</description>
+	</property>
+	<property>
+        <name>io.seqfile.compressioin.type</name>
+        <value>BLOCK</value>
+		<description></description>
+	</property>
+	<property>
+        <name>hadoop.proxyuser.root.groups</name>
+        <value>hadoop</value>
+		<description>hdfs dfsadmin -refreshSuperUserGroupsConfiguration,yarn rmadmin -refreshSuperUserGroupsConfiguration使用这两个命令不用重启就能刷新</description>
+	</property>
+	<property>
+        <name>hadoop.proxyuser.root.hosts</name>
+        <value>localhost</value>
+		<description></description>
+	</property>
+</configuration>
