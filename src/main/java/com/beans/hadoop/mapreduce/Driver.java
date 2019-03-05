@@ -12,7 +12,6 @@ public class Driver {
 		driver.addClass("wordcount", WordCount.class, "词数");
 		
 		driver.run(new String[]{"wordcount"});
-		
 //		ProgramDriver.class.getMethod("driver", new Class[] {String.class}).invoke(driver, "wordcount");
 	}
 
